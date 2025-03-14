@@ -1,0 +1,54 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #E3F2FD; /* Light Blue */
+    color: #0D47A1; /* Dark Blue */
+    margin: 20px;
+    text-align: center;
+}
+
+/* Header */
+h2 {
+    color: #1565C0; /* Medium Blue */
+    margin-bottom: 20px;
+}
+
+/* Buttons */
+a, button {
+    background-color: #1976D2; /* Primary Blue */
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    display: inline-block;
+    margin: 5px;
+    cursor: pointer;
+}
+
+a:hover, button:hover {
+    background-color: #0D47A1; /* Darker Blue */
+}
+
+/* Table Styling */
+table {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    border: 1px solid #90CAF9; /* Light Blue Border */
+    padding: 10px;
+    text-align: center;
+}
+
+th {
+    background-color: #1976D2; /* Header Blue */
+    color: white;
+}
+
+td {
+    background-color: #BBDEFB; /* Lightest Blue */
+}
