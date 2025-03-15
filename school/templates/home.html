@@ -1,0 +1,40 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Welcome to Our School{% endblock %}
+
+{% block content %}
+<div class="hero">
+    <h1>Welcome to Our School Management System</h1>
+    <p>Effortlessly manage student records with ease.</p>
+    <a href="{% url 'student_create' %}" class="button cta-button">Register a Student</a>
+</div>
+
+<div class="features">
+    <h2>Why Choose Us?</h2>
+    <div class="feature-grid">
+        <div class="feature-item">
+            <h3>📚 Organized Student Records</h3>
+            <p>Keep all student data structured and easily accessible.</p>
+        </div>
+        <div class="feature-item">
+            <h3>📊 Detailed Reports</h3>
+            <p>Generate and view student performance reports effortlessly.</p>
+        </div>
+        <div class="feature-item">
+            <h3>🎨 Beautiful & Simple UI</h3>
+            <p>A clean and intuitive interface for easy navigation.</p>
+        </div>
+        <div class="feature-item">
+            <h3>🛡 Secure & Reliable</h3>
+            <p>Ensuring data safety and privacy at all times.</p>
+        </div>
+    </div>
+</div>
+
+<div class="contact">
+    <h2>Contact Us</h2>
+    <p>Email: info@ourschool.com</p>
+    <p>Phone: +123 456 7890</p>
+</div>
+{% endblock %}

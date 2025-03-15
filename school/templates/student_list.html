@@ -1,35 +1,48 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student List</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-<body>
-    <h2>Student List</h2>
-    <a href="{% url 'student_create' %}">Add Student</a>
-    <table>
+
+
+{% extends 'base.html' %}
+
+{% block title %}Student List{% endblock %}
+
+{% block content %}
+<h2>Student List</h2>
+
+<!-- Button to add a new student -->
+<a href="{% url 'student_create' %}" class="button">Add Student</a>
+
+<!-- Student Table -->
+<table>
+    <thead>
         <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Email</th>
             <th>Age</th>
             <th>Course</th>
             <th>Actions</th>
         </tr>
+    </thead>
+    <tbody>
         {% for student in students %}
         <tr>
+            <td>{{ student.id }}</td>
             <td>{{ student.name }}</td>
             <td>{{ student.email }}</td>
             <td>{{ student.age }}</td>
             <td>{{ student.course }}</td>
             <td>
-                <a href="{% url 'student_update' student.id %}">Edit</a>
-                <a href="{% url 'student_delete' student.id %}">Delete</a>
+                <a href="{% url 'student_update' student.id %}" class="button edit-button">Edit</a>
+                <a href="{% url 'student_delete' student.id %}" class="button delete-button">Delete</a>
             </td>
         </tr>
+        {% empty %}
+        <tr>
+            <td colspan="6">No students found.</td>
+        </tr>
         {% endfor %}
-    </table>
-</body>
-</html>
+    </tbody>
+</table>
+{% endblock %}
+
+
+

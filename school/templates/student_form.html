@@ -1,25 +1,53 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% if student %}Edit Student{% else %}Add Student{% endif %}</title>
-    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
-<body>
+
+
+{% extends 'base.html' %}
+
+{% block title %}{% if student %}Edit Student{% else %}Add Student{% endif %}{% endblock %}
+
+{% block content %}
+<div class="form-container">
     <h2>{% if student %}Edit Student{% else %}Add Student{% endif %}</h2>
-    <form method="POST">
+
+    <form method="POST" class="student-form">
         {% csrf_token %}
-        <label>Name:</label>
-        <input type="text" name="name" value="{{ student.name|default:'' }}" required><br>
-        <label>Email:</label>
-        <input type="email" name="email" value="{{ student.email|default:'' }}" required><br>
-        <label>Age:</label>
-        <input type="number" name="age" value="{{ student.age|default:'' }}" required><br>
-        <label>Course:</label>
-        <input type="text" name="course" value="{{ student.course|default:'' }}" required><br>
-        <button type="submit">Save</button>
+
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" value="{{ student.name|default:'' }}" required>
+
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" value="{{ student.email|default:'' }}" required>
+
+        <label for="age">Age:</label>
+        <input type="number" name="age" id="age" value="{{ student.age|default:'' }}" required>
+
+        <label for="course">Course:</label>
+        <input type="text" name="course" id="course" value="{{ student.course|default:'' }}" required>
+
+        <button type="submit" class="button submit-button">
+            {% if student %}Update Student{% else %}Register Student{% endif %}
+        </button>
     </form>
-</body>
-</html>
+</div>
+{% endblock %}
+
+{#{% extends 'base.html' %}#}
+{##}
+{#{% block title %}{% if student %}Edit Student{% else %}Add Student{% endif %}{% endblock %}#}
+{##}
+{#{% block content %}#}
+{#<h2>{% if student %}Edit Student{% else %}Add Student{% endif %}</h2>#}
+{#<form method="POST">#}
+{#    {% csrf_token %}#}
+{#    <label>Name:</label>#}
+{#    <input type="text" name="name" value="{{ student.name|default:'' }}" required><br>#}
+{#    <label>Email:</label>#}
+{#    <input type="email" name="email" value="{{ student.email|default:'' }}" required><br>#}
+{#    <label>Age:</label>#}
+{#    <input type="number" name="age" value="{{ student.age|default:'' }}" required><br>#}
+{#    <label>Course:</label>#}
+{#    <input type="text" name="course" value="{{ student.course|default:'' }}" required><br>#}
+{#    <button type="submit" class="button">Save</button>#}
+{#</form>#}
+{#{% endblock %}#}
+{##}
+
